@@ -1,0 +1,78 @@
+﻿<Window x:Class="QS2QBPost.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:QS="clr-namespace:QS2QBPost"
+        Title="QB Download"
+        Width="525"
+        Height="350">
+    <Window.Resources>
+        <x:Static x:Key="QBClassModelDataSource" Member="QS:QBClass.Singleton" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*" />
+            <ColumnDefinition Width="184*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textBlock"
+                   Width="92"
+                   Height="29"
+                   Margin="31,268,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Text="{Binding ProcessedPost,
+                                  Source={StaticResource QBClassModelDataSource}}"
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <TextBlock x:Name="textBlock1"
+                   Grid.ColumnSpan="2"
+                   Width="54"
+                   Height="17"
+                   Margin="123,274,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="Of"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap" />
+        <TextBlock x:Name="textBlock2"
+                   Grid.ColumnSpan="2"
+                   Width="481"
+                   Height="66"
+                   Margin="28,197,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="16"
+                   Text="{Binding Status,
+                                  Source={StaticResource QBClassModelDataSource}}"
+                   TextWrapping="Wrap" />
+        <Button Grid.Column="1"
+                Width="175"
+                Height="38"
+                Margin="10,53,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="DownloadQBItemsBtn"
+                Content="Download Inventory Changes" />
+        <Button Grid.Column="1"
+                Width="175"
+                Height="42"
+                Margin="10,96,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="RefreshInventory"
+                Content="Refresh Inventory" />
+        <TextBlock x:Name="textBlock_Copy"
+                   Grid.Column="1"
+                   Width="92"
+                   Height="29"
+                   Margin="31.786,268,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Text="{Binding TotalPost,
+                                  Source={StaticResource QBClassModelDataSource}}"
+                   TextWrapping="Wrap" />
+    </Grid>
+</Window>
